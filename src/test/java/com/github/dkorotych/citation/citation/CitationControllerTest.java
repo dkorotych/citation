@@ -44,7 +44,7 @@ public class CitationControllerTest {
                 andReturn();
 
         mockMvc.perform(asyncDispatch(result)).
-                andDo(MockMvcResultHandlers.print()).
+//                andDo(MockMvcResultHandlers.print()).
                 andExpect(status().isOk()).
                 andExpect(content().contentType(APPLICATION_JSON_UTF8)).
                 andExpect(content().encoding(StandardCharsets.UTF_8.name())).
@@ -61,7 +61,7 @@ public class CitationControllerTest {
         mockMvc.perform(
                 get("/citation/search/any").
                         contentType(APPLICATION_JSON_UTF8)).
-                andDo(MockMvcResultHandlers.print()).
+//                andDo(MockMvcResultHandlers.print()).
                 andExpect(status().isOk()).
                 andExpect(content().contentType(APPLICATION_JSON_UTF8)).
                 andExpect(content().encoding(StandardCharsets.UTF_8.name())).
@@ -80,7 +80,7 @@ public class CitationControllerTest {
 
         final int count = 25;
         mockMvc.perform(asyncDispatch(result)).
-                andDo(MockMvcResultHandlers.print()).
+//                andDo(MockMvcResultHandlers.print()).
                 andExpect(status().isOk()).
                 andExpect(content().contentType(APPLICATION_JSON_UTF8)).
                 andExpect(content().encoding(StandardCharsets.UTF_8.name())).
