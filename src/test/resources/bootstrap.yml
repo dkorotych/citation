@@ -1,0 +1,3 @@
+embedded:
+  redis:
+    docker-image: redis:latest

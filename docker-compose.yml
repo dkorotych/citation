@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  redis:
+    image: redis:latest
+
+  application:
+    image: openjdk:8-jre-alpine
+    volumes:
+      - "./target:/app:ro"
+    command: java -jar -Dspring.profiles.active=docker /app/citation.jar
+    working_dir: /app
+    environment:
+      - spring.redis.host=redis
+    ports:
+      - 8080:8080
+    depends_on:
+      - redis

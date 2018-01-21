@@ -1,0 +1,22 @@
+spring:
+  redis:
+    host: ${embedded.redis.host}
+    port: ${embedded.redis.port}
+    password: ${embedded.redis.password}
+  application:
+    admin:
+      enabled: false
+    name: Citation
+  boot:
+    admin:
+      auto-registration: false
+      client:
+        enabled: false
+      discovery:
+        enabled: false
+endpoints:
+  jolokia:
+    enabled: false
+  actuator:
+    enabled: false
+  enabled: false

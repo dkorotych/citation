@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: Citation
+  boot:
+    admin:
+      url: http://localhost:8080/
+management:
+  security:
+    enabled: false
+security:
+  require-ssl: true
