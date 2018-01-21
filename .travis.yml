@@ -7,3 +7,6 @@ jdk:
   - openjdk8
 services:
   docker
+script: "./mvnw package jacoco:report"
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
