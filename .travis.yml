@@ -5,3 +5,5 @@ cache:
 jdk:
   - oraclejdk8
   - openjdk8
+services:
+  docker
