@@ -2,6 +2,7 @@ package com.github.dkorotych.citation.citation;
 
 import com.github.dkorotych.citation.author.AuthorService;
 import com.github.dkorotych.citation.domain.Author;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
@@ -14,6 +15,7 @@ import javax.annotation.Nullable;
 import java.util.concurrent.Callable;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
+import static org.springframework.http.MediaType.TEXT_PLAIN_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
@@ -49,6 +51,11 @@ public class CitationController {
             return ResponseEntity.ok(citationService.findAny());
         }
         return ResponseEntity.ok(citationService.findAny(authorService.findByName(author.getName())));
+    }
+
+    @RequestMapping(method = POST, path = "/search", consumes = TEXT_PLAIN_VALUE)
+    public ResponseEntity findByText(@NotBlank @RequestBody String text) {
+        return ResponseEntity.ok(citationService.findByText(text));
     }
 
     @RequestMapping(method = POST, path = "/search/all")

@@ -5,4 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CitationRepository extends KeyValueRepository<CitationEntity, Long> {
+    CitationEntity findByIndexedText(String text);
 }
